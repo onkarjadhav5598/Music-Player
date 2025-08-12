@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Modern Dark Gradient Media Player</title>
+
+<!-- SF Pro Display Font -->
+<style>
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://sf.abarba.me/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://sf.abarba.me/SF-Pro-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://sf.abarba.me/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+</style>
+
+<style>
+:root {
+  --accent: #ff4d4d;
+  --secondary: #c0c0c0;
+}
+
+body {
+  font-family: 'SF Pro Display', sans-serif;
+  background: linear-gradient(135deg, #0f0f10, #1c1c1e, #5e3c3d);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.player {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width:600px) {
+  .player {
+    max-width: 95%;
+    padding: 12px;
+    gap: 12px;
+  }
+  .cover {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+  
+}
+
+.cover {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.cover img {
+  width: 100%;
+  display: block;
+}
+
+.song-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.song-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.song-artist {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.progress-container {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.progress {
+  width: 100%;
+  height: 5px;
+  background: #ff453a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 40%;
+  background: var(--accent);
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--secondary);
+  margin-top: 0.3rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.control-btn:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+#play-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align:baseline;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 15px #ff453a;
+  transition: transform 4000ms;
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  transform: scale(1.5);
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.volume-slider { 
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background:#ff453a;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#seek-slider{
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#seek-slider::-webkit-slider-runnable-track {
+  /* CSS properties for the track */ /* Example: light grey background */
+  height: 5px;     /* Example: track height */
+  border-radius: 4px;
+  color: white;
+  width: 100%; /* Example: rounded corners */
+  border-radius: 4px; /* Example: rounded corners */
+}
+
+#seek-slider::-webkit-slider-thumb{
+
+  -webkit-appearance: none;
+  margin-top: -3px ;
+  height: 12.5px;
+  width: 12px;
+  background-color: #ff453a;
+  border-radius: 4px;
+}
+
+
+#mute{
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="player">
+  <div class="cover">
+    <img id="album-cover" src="" alt="Album Cover">
+  </div>
+  <div class="song-info">
+    <div id="song-title" class="song-title"></div>
+    <marquee behavior="" direction=""  scrolldelay="10" >
+      <div id="song-artist" class="song-artist">artist</div>
+    </marquee>
+  </div>
+  <div class="progress-container">
+    <input type="range" id="seek-slider"  min="0" max="100" value="0" step="1" f>
+    <div class="time">
+      <span id="ct">0:00</span>
+      <span id="tt">0:00</span>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button id="control-btn-rev" id="control-btn-fwd" class="control-btn">⏮</button>
+    <button id="play-btn">▶</button>
+    <button id="control-btn-fwd" class="control-btn">⏭</button>
+  </div>
+  <div class="volume-container">
+    <span id="mute">🔈</span>
+    <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="35">
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
