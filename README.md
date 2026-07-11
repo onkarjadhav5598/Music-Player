@@ -66,11 +66,6 @@ That’s it — no build tools or dependencies required.
 Contributions, suggestions, and feature ideas are welcome.
 Feel free to fork this repo and open a pull request.
 
-## 📄 License
-
-This project is currently unlicensed.
-You can add an MIT License (or your preferred one) if you want to make reuse explicit.
-
 ---
 
 Made with ❤️ by [@onkarjadhav5598](https://github.com/onkarjadhav5598)
