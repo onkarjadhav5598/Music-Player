@@ -61,11 +61,6 @@ That’s it — no build tools or dependencies required.
 - Better accessibility (ARIA labels, focus states)
 - Save last played song in localStorage
 
-## 🤝 Contributing
-
-Contributions, suggestions, and feature ideas are welcome.
-Feel free to fork this repo and open a pull request.
-
 ---
 
 Made with ❤️ by [@onkarjadhav5598](https://github.com/onkarjadhav5598)
