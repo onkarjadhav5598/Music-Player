@@ -11,7 +11,6 @@ It features a beautiful glassmorphism-style UI, animated gradient background, an
 
 - 🎧 Play / Pause music
 - ⏮ Previous track / ⏭ Next track controls
-- 📀 Dynamic album cover, song title, and artist updates
 - ⏱ Real-time current time and total duration display
 - 🎚 Seek bar for scrubbing through tracks
 - 🔊 Volume control + mute/unmute toggle
